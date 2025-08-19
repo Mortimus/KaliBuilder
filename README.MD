@@ -18,8 +18,8 @@ scp CLIENTNAME.ovpn kali@BUILDBOX:~/
 
 ```bash
 cd ~ # Move to Home folder
-git clone git@github.com:kalibuilder/kalibuilder.git
-cd kalibuilder
+git clone git@github.com:Mortimus/KaliBuilder.git
+cd KaliBuilder
 ```
 
 ### Build ISO
@@ -30,7 +30,7 @@ cd kalibuilder
 ```
 
 * "CLIENTNAME.ovpn" is the client ovpn file
-* "/home/kali/kalibuilder/variant-mycompany" is the folder from this repo containing the base config (optional)
+* "/home/kali/KaliBuilder/variant-mycompany" is the folder from this repo containing the base config (optional)
 
 ## Changes from standard Kali
 
