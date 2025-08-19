@@ -1,0 +1,9 @@
+---------------------------------------------------------------------
+MyCompany
+Please ensure outbound tcp/443 and udp/1433 are allowed for this host
+VPN: my-open-vpn-server.com
+VPN External IP: 1.2.3.4
+VPN Internal IP: \4{tun0}
+Hostname: \n
+IP: \4{eth0}
+---------------------------------------------------------------------

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+users=(
+    "mycompany"
+    "bob"
+    "john"
+    "steve"
+    "tim"
+    "bill"
+)
+
+for user in "${users[@]}"
+do
+        echo "Updating ZSH for: $user"
+
+        # update ZSH
+        echo 'setopt INC_APPEND_HISTORY' >>/home/$user/.zshrc
+        echo 'export HISTTIMEFORMAT="[%F %T] "' >>/home/$user/.zshrc
+        echo 'setopt EXTENDED_HISTORY' >>/home/$user/.zshrc
+        echo 'export HISTSIZE=1000000' >>/home/$user/.zshrc
+        echo 'export SAVEHIST=1000000' >>/home/$user/.zshrc
+        echo 'setopt SHARE_HISTORY' >>/home/$user/.zshrc
+        #echo 'alias nmap="grc nmap"' >>/home/$user/.zshrc
+        echo '[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh' >>/home/$user/.zshrc
+        echo 'alias whatismyip="curl checkip.amazonaws.com"' >>/home/$user/.zshrc
+
+        echo "Done updating $user"
+done

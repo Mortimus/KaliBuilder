@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "export PIPX_GLOBAL_BIN_DIR=/usr/local/bin" >> /etc/profile
+echo "export PIPX_BIN_DIR=/usr/local/bin" >> /etc/profile
+echo "export PIPX_GLOBAL_HOME=/opt/pipx" >> /etc/profile
+echo "export PIPX_HOME=/opt/pipx" >> /etc/profile

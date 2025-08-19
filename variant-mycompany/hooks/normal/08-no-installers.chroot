@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Set the directory containing the scripts
+SCRIPT_DIR="/opt/mycompany/virtual/installers"
+
+cd $SCRIPT_DIR
+# Loop through all .sh files in the directory
+for script_file in "$SCRIPT_DIR"/*.sh; do
+    echo "Running $script_file"
+    chmod +x $script_file
+    /bin/bash "$script_file"
+done
+
+# Tmux Logging needs to be executable by all users
+chmod +x /opt/mycompany/tmux_logging.sh
+chmod 755 /opt/mycompany/tmux_logging.sh

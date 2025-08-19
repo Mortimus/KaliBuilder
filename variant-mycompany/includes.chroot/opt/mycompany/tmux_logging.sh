@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+tmux pipe-pane -o 'exec bash -c "while IFS= read -r line; do printf \"%%(%%Y%%m%%dT%%H%%M%%S%%z)T: %%s\n\" -1 \"\$line\"; done"\; exec cat >> $HOME/Logs/#S-#W-#I-#P-%Y%m%dT%H%M%S.log' \; display-message 'Logging to ~/Logs/'

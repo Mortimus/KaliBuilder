@@ -1,0 +1,4 @@
+#!/bin/sh
+
+apt -y remove python3-impacket netexec certipy-ad crackmapexec
+apt -y autoremove

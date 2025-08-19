@@ -1,0 +1,60 @@
+#!/bin/bash
+
+users=(
+    "mycompany"
+    "bob"
+    "john"
+    "steve"
+    "tim"
+    "bill"
+)
+
+for user in "${users[@]}"
+do
+        echo "Creating user: $user"
+
+        # add user
+        useradd -m -d /home/$user $user
+        # make admin
+        usermod -a -G sudo $user
+
+        # add ssh keys
+        mkdir /home/$user/.ssh/
+        chown $user:$user /home/$user/.ssh/
+        cp /root/.ssh/authorized_keys /home/$user/.ssh/authorized_keys
+        chmod 600 /home/$user/.ssh/authorized_keys
+        chown $user:$user /home/$user/.ssh/authorized_keys
+
+        # update ZSH -> moved to 30-update-zsh.chroot
+        # echo 'setopt INC_APPEND_HISTORY' >>/home/$user/.zshrc
+        # echo 'export HISTTIMEFORMAT="[%F %T] "' >>/home/$user/.zshrc
+        # echo 'setopt EXTENDED_HISTORY' >>/home/$user/.zshrc
+        # echo 'export HISTSIZE=1000000' >>/home/$user/.zshrc
+        # echo 'export SAVEHIST=1000000' >>/home/$user/.zshrc
+        # echo 'setopt SHARE_HISTORY' >>/home/$user/.zshrc
+        # echo 'alias nmap="grc nmap"' >>/home/$user/.zshrc
+        # echo 'alias whatismyip="curl checkip.amazonaws.com"' >>/home/$user/.zshrc
+
+        # update nxc
+        mkdir /home/$user/.nxc/
+        chown $user:$user /home/$user/.nxc/
+        cp /root/.nxc/nxc.conf /home/$user/.nxc/nxc.conf
+        chown -R $user:$user /home/$user/.nxc/
+
+        # update tmux
+        cp -R /opt/mycompany/.tmux /home/$user/
+        chown -R $user:$user /home/$user/.tmux
+        cp /root/.tmux.conf /home/$user/.tmux.conf
+        chown $user:$user /home/$user/.tmux.conf
+        mkdir /home/$user/Logs
+        chown $user:$user /home/$user/Logs
+
+        # remove extra folders - these don't exist due to headless install
+        # rmdir /home/$user/Documents
+        # rmdir /home/$user/Music
+        # rmdir /home/$user/Public
+        # rmdir /home/$user/Templates
+        # rmdir /home/$user/Videos
+
+        echo "Done creating $user"
+done

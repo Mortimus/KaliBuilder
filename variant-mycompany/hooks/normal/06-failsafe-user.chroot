@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# TODO update preseed.cfg with a hash of a password and store said password on build machine name it break glass
+# preseed.cfg won't make the user
+
+# add user
+useradd -m -d /home/breakglass breakglass
+# make admin
+usermod -a -G sudo breakglass
+
+PASSWORD="REDACTED"
+# set passwd
+echo "breakglass:$PASSWORD" | chpasswd
