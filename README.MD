@@ -1,6 +1,7 @@
 # Kali ISO Building
 
-This is a tool to help build a custom Kali Linux ISO to deploy to clients for authorized remote access to penetration testing tools to perform Evil-Maid type assessments
+This is a tool to help build a custom headless Kali Linux ISO to deploy to clients for authorized remote access to penetration testing tools to perform Evil-Maid type assessments.
+This expects to run on a Kali Linux environment.
 
 ## Process
 
